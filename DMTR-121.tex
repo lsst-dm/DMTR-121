@@ -11,8 +11,8 @@
 
 \begin{document}
 
-\def\milestoneName{Spectrograph data acquisition ldm-503-8}
-\def\milestoneId{LVV-P32}
+\def\milestoneName{Spectrograph data acquisition}
+\def\milestoneId{LDM-503-8}
 \def\product{Data Management}
 
 \setDocCompact{true}
@@ -40,10 +40,43 @@ This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST 
 \subsection{Objectives}
 \label{sect:objectives}
 
+To acquire data from the spectrograph instrument along with proper
+headers and transfer all data to NCSA for further viewing in LSP.~~
+
 
 
 \subsection{System Overview}
 \label{sect:systemoverview}
+
+The spectragraph instrument is the first device to send real image data
+to NCSA. ~ ~In the beginning, data is to be viewed before being stored
+for record of the survey. ~Therefore data will be sent to NCSA for
+further viewing through the LSST Science Platform (LSP). ~ The data can
+be verified by a human scientist. ~If further processing or the data is
+to be kept for further access, it can be ingested into the DBB along
+with metadata and provedence data and then flagged for further
+processing. ~ The version 1.0 of this test will have data written from
+the spectragraph directly to a local filesystem on the ATS system. ~ A
+script will be installed to copy all data from that image directory on
+the ATS system to NCSA. ~The data will be placed into a directory at
+NCSA, and a ButlerG2 record will be generated so that the LSP can access
+the file. ~ After the data from the spectragraph will always want to be
+kept, ~ version 2.0 of this test will be that all data from the
+spectragraph will be placed on the L1 image uploader system. ~The L1
+image uploader system will have the OODS service and the DBB service.
+~The DBB service will transfer the data to NCSA and use the header files
+to generate metadata/provedence data. ~The DBB will be responsible to
+generate the ButlerG3 access files along with protect the data from
+never loosing it, and ingest it into the permanent record of the survey.
+~The L1 image uploader system will enable quick access to images that
+were just taken and keep 30 days worth of cache for scientists to view
+as needed. ~\\[2\baselineskip]
+
+\subsection{Applicable Documents}\label{applicable-documents}
+
+\citeds{LDM-294} Data Management Organization and Management\\
+\citeds{LDM-503} DM Test Plan\\
+\citeds{LDM-148} Data Management System Design
 
 
 \subsection{Document Overview}
@@ -78,12 +111,17 @@ The current status of test plan LVV-P32 in Jira is Draft.
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
+  The verification will be that a file is placed on the ATS system by the
+spectragraph, and then it's transferred and viewed by scientists in the
+LSP. ~
 
 
   \subsection{Entry Criteria}
+  Image data taken by the spectragraph.~~
 
 
   \subsection{Exit Criteria}
+  Image data from spectragraph viewable by LSP at NCSA.~
 
 
 
@@ -113,6 +151,18 @@ The following personnel are involved in this test activity:
 \subsection{Summary}
 \label{sect:summarytable}
 
+\begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
+\toprule
+  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: Enable spectragraph data viewable by LSP.
+ }} \\\hline
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} 
+    & Not Executed &  &
+    \\\hline
+
+\caption{Test Results Summary}
+\label{table:summary}
+\end{longtable}
 
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
@@ -131,6 +181,177 @@ Not yet available.
 
   \subsection{Test Cycle LVV-C56 }
 
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{Enable spectragraph data viewable by LSP.
+}} in Jira.
+
+  Enable spectragraph data viewable by LSP.
+\\
+  Status: Not Executed
+
+  Image data needs to be created and available for transfer to NCSA. ~The
+data will be transferred to NCSA and made available to scientists for
+viewing and verification.~ ~~
+
+
+  \subsubsection{Software Version/Baseline}
+    Not provided.
+
+  \subsubsection{Configuration}
+    ATS system connected to spectragraph DAQ is required to have well formed
+image data. ~Well formed means ``good'' image and correct headers.
+~\\[2\baselineskip]
+
+
+  \subsubsection{Test Cases in LVV-C56 Test Cycle}
+
+
+    \paragraph{Test Case LVV-T454 }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{\textit{ LVV-T454 } }
+test case in Jira.
+
+    \begin{itemize}
+\tightlist
+\item
+  Acquire spectragraph image data, transfer that data to NCSA, ingest
+  data into some Butler (G2 or G3 when available), and enable viewing of
+  data on LSP. ~
+\end{itemize}
+
+
+    {\bf Preconditions}:\\
+    Data must be well formed on Spectragraph data archiving system (ATS).
+~Well-formed means that it has good headers and the file names are
+unique. ~
+
+
+    Execution status: {\bf Not Executed }
+
+    Final comment:\\
+
+
+    Detailed step results:
+
+    \begin{longtable}{p{1cm}p{2cm}p{13cm}}
+    \hline
+    {Step} & \multicolumn{2}{c}{Description, Results and Status}\\ \hline
+      1 & Description &
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      Have data on the ATS archiver system from the spectragraph.~
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & Expected Result & 
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      Well formed files on the ATS system that need to be transferred to NCSA
+for further analysis
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
+      \begin{minipage}[t]{13cm}{\footnotesize
+      
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+
+      & Status          & Not Executed \\ \hline
+
+      2 & Description &
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      human runs script to transfer data to NCSA through secure pipeline, or a
+cronjob starts up data ``sync'' process.~~
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & Expected Result & 
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      Data is transferred to NCSA, and is located in NCSA file
+systems.\\[2\baselineskip]
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
+      \begin{minipage}[t]{13cm}{\footnotesize
+      
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+
+      & Status          & Not Executed \\ \hline
+
+      3 & Description &
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      All files transferred have a ButlerG2 (or G3 when ready) ingest
+process.~
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & Expected Result & 
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      files now can be accessed by Butler access methods\\[2\baselineskip]
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
+      \begin{minipage}[t]{13cm}{\footnotesize
+      
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+
+      & Status          & Not Executed \\ \hline
+
+      4 & Description &
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      LSP processes can now view spectragraph generate files~
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & Expected Result & 
+
+      \begin{minipage}[t]{13cm}{\footnotesize
+      LSP jupyter notebooks can view spectragraph files.\\[2\baselineskip]
+
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
+      \begin{minipage}[t]{13cm}{\footnotesize
+      
+      \vspace{\dp0}
+      } \end{minipage} \\
+      \\ \cdashline{2-3}
+
+
+      & Status          & Not Executed \\ \hline
+
+    \end{longtable}
 
 
 \input{appendix.tex}
