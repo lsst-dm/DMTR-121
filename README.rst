@@ -3,9 +3,9 @@
 .. image:: https://travis-ci.org/lsst-dm/DMTR-102.svg
    :target: https://travis-ci.org/lsst-dm/DMTR-102
 
-#####################################################
-LDM-503-8b (Raw Image Archiving) Test Plan and Report
-#####################################################
+##############################################################
+LDM-503-8 (Spectrograph Data Acquisition) Test Plan and Report
+##############################################################
 
 DMTR-102
 ========
@@ -14,6 +14,6 @@ This is the test report for LDM-503-8 (Spectrograph data acquisition), an LSST D
 
 **Links**
 
-- Accepted version on DocuShare: https://ls.st/DMTR-102
-- Live drafts: https://dmtr-102.lsst.io
-- GitHub: https://github.com/lsst-dm/DMTR-102
+- Accepted version on DocuShare: https://ls.st/DMTR-121
+- Live drafts: https://dmtr-121.lsst.io
+- GitHub: https://github.com/lsst-dm/DMTR-121
