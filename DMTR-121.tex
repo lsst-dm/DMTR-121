@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\def\milestoneName{Spectrograph data acquisition}
+\def\milestoneName{Spectrograph Data Acquisition}
 \def\milestoneId{LDM-503-8}
 \def\product{Data Management}
 
@@ -49,28 +49,29 @@ headers and transfer all data to NCSA for further viewing in LSP.~~
 \label{sect:systemoverview}
 
 The spectragraph instrument is the first device to send real image data
-to NCSA. ~ ~In the beginning, data is to be viewed before being stored
-for record of the survey. ~Therefore data will be sent to NCSA for
-further viewing through the LSST Science Platform (LSP). ~ The data can
-be verified by a human scientist. ~If further processing or the data is
-to be kept for further access, it can be ingested into the DBB along
-with metadata and provedence data and then flagged for further
-processing. ~ The version 1.0 of this test will have data written from
-the spectragraph directly to a local filesystem on the ATS system. ~ A
-script will be installed to copy all data from that image directory on
-the ATS system to NCSA. ~The data will be placed into a directory at
-NCSA, and a ButlerG2 record will be generated so that the LSP can access
-the file. ~ After the data from the spectragraph will always want to be
-kept, ~ version 2.0 of this test will be that all data from the
-spectragraph will be placed on the L1 image uploader system. ~The L1
-image uploader system will have the OODS service and the DBB service.
-~The DBB service will transfer the data to NCSA and use the header files
-to generate metadata/provedence data. ~The DBB will be responsible to
-generate the ButlerG3 access files along with protect the data from
-never loosing it, and ingest it into the permanent record of the survey.
-~The L1 image uploader system will enable quick access to images that
-were just taken and keep 30 days worth of cache for scientists to view
-as needed. ~\\[2\baselineskip]
+to NCSA. ~ ~In the beginning, the image data from a new instrument
+requires human viewing before setting the future of an image. ~It could
+be deleted or be stored for further processing. ~ Therefore data will be
+sent to NCSA for further viewing through the LSST Science Platform
+(LSP). ~ ~If further processing or the data is to be kept for further
+analysis or access, it will be ingested into the DBB along with
+metadata, ~provenance along with being flagged for further processing. ~
+Version 1.0 of this test will have data written from the spectragraph
+directly to a local filesystem on the ATS system which is co-located
+with the spectragraph instrument. ~ Data will be copied from that image
+directory on the ATS system to NCSA and a ButlerG2 ingest process
+completed so that the LSP can access the image file. ~ Version 2.0, when
+the spectragraph is on the summit, of this test will be that all data
+from the spectragraph will be written on the L1 handoff system which
+will be at the BDC (base data center). ~The L1 handoff system will have
+the OODS service and the DBB service installed. ~The DBB service will
+transfer the data to NCSA and use the header files to generate
+metadata/provenance data. ~The DBB will be responsible to generate the
+ButlerG3 access files along with protect the data from never loosing it,
+and ingest it into the permanent record of the survey. ~The L1 handoff
+system through the OODS will enable quick access to images that were
+just taken and keep 30 days worth of cache for scientists to view as
+needed from the summit LSP. ~\\[2\baselineskip]
 
 \subsection{Applicable Documents}\label{applicable-documents}
 
@@ -135,7 +136,7 @@ The following personnel are involved in this test activity:
 \item Test Cycles:
 \begin{itemize}
   \item LVV-C56 owner: 
-    Undefined
+    Michelle Gower
   \begin{itemize}
     \item Test case LVV-T454 tester: 
   \end{itemize}
@@ -153,7 +154,7 @@ The following personnel are involved in this test activity:
 
 \begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
 \toprule
-  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: Enable spectragraph data viewable by LSP.
+  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectragraph data viewable by LSP.
  }} \\\hline
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} 
@@ -181,10 +182,10 @@ Not yet available.
 
   \subsection{Test Cycle LVV-C56 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{Enable spectragraph data viewable by LSP.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{LDM-503-8 Enable spectragraph data viewable by LSP.
 }} in Jira.
 
-  Enable spectragraph data viewable by LSP.
+  LDM-503-8 Enable spectragraph data viewable by LSP.
 \\
   Status: Not Executed
 
