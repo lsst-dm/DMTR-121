@@ -48,30 +48,31 @@ headers and transfer all data to NCSA for further viewing in LSP.~~
 \subsection{System Overview}
 \label{sect:systemoverview}
 
-The spectragraph instrument is the first device to send real image data
-to NCSA. ~ ~In the beginning, the image data from a new instrument
-requires human viewing before setting the future of an image. ~It could
-be deleted or be stored for further processing. ~ Therefore data will be
-sent to NCSA for further viewing through the LSST Science Platform
-(LSP). ~ ~If further processing or the data is to be kept for further
-analysis or access, it will be ingested into the DBB along with
-metadata, ~provenance along with being flagged for further processing. ~
-Version 1.0 of this test will have data written from the spectragraph
-directly to a local filesystem on the ATS system which is co-located
-with the spectragraph instrument. ~ Data will be copied from that image
-directory on the ATS system to NCSA and a ButlerG2 ingest process
-completed so that the LSP can access the image file. ~ Version 2.0, when
-the spectragraph is on the summit, of this test will be that all data
-from the spectragraph will be written on the L1 handoff system which
-will be at the BDC (base data center). ~The L1 handoff system will have
-the OODS service and the DBB service installed. ~The DBB service will
-transfer the data to NCSA and use the header files to generate
-metadata/provenance data. ~The DBB will be responsible to generate the
-ButlerG3 access files along with protect the data from never loosing it,
-and ingest it into the permanent record of the survey. ~The L1 handoff
-system through the OODS will enable quick access to images that were
-just taken and keep 30 days worth of cache for scientists to view as
-needed from the summit LSP. ~\\[2\baselineskip]
+The spectragraph instrument is the first device to have real data for
+viewing and evaluation. ~ ~In the beginning, the image data from a new
+instrument requires human viewing before setting the future of an image.
+~The image could be deleted or be stored for further processing. ~
+Therefore the image data will be sent to NCSA for further viewing
+through the LSST Science Platform (LSP). ~ ~If further processing or the
+image data is to be kept for further analysis, it will be ingested into
+the DBB along with the image's metadata/provenance for further
+processing. ~ Version 1.0 of this test will have data written from the
+spectragraph directly to a local disk on the ATS system which is
+co-located and directly connected to the spectragraph instrument. ~ Data
+will be copied from that local disk on the ATS system to NCSA and a
+ButlerG2 ingest process completed so that the LSP can access the image
+data. ~ Version 2.0 of this test, when the spectragraph is on the
+summit, will be that all data from the spectragraph will be written on
+the L1 handoff system which will be at the BDC (base data center). ~The
+L1 handoff system will have the OODS service and the DBB service in
+place. ~The DBB service will transfer the data to NCSA and use the
+header files to generate metadata/provenance data. ~The DBB will be
+responsible to generate the ButlerG3 access files along with protect the
+data from never loosing it, and ingest it into the permanent record of
+the survey. ~The L1 handoff system through the OODS will enable quick
+access to images that were just created and keep 30 days worth of cache
+for scientists to view as needed from the summit LSP.
+~\\[2\baselineskip]
 
 \subsection{Applicable Documents}\label{applicable-documents}
 
