@@ -48,30 +48,30 @@ headers and transfer all data to NCSA for further viewing in LSP.~~
 \subsection{System Overview}
 \label{sect:systemoverview}
 
-The spectragraph instrument is the first device to have real data for
+The spectrograph instrument is the first device to have real data for
 viewing and evaluation. ~ Early spectrograph data will undergo human
 inspection to determine whether it is suitable for further processing;
 if it is not, it will be deleted. ~ Therefore the image data will be
 sent to NCSA for further viewing through the LSST Science Platform
 (LSP). ~ ~If further processing is desired, the image will be ingested
 into the DBB along with its metadata/provenance for further processing.
-~ Version 1.0 of this test will have data written from the spectragraph
+~ Version 1.0 of this test will have data written from the spectrograph
 directly to a local disk on the ATS storage server which is co-located
-and directly connected to the spectragraph instrument. ~ Data will be
+and directly connected to the spectrograph instrument. ~ Data will be
 copied from that local disk on the ATS storage server to NCSA and a
 ButlerG2 (or G3) ingest process completed so that the LSP can access the
-image data. ~ Version 2.0 of this test, when the spectragraph is on the
-summit, will be that all data from the spectragraph will be written to
-the L1 handoff system which will be at the BDC (base data center). ~The
+image data. ~ Version 2.0 of this test, when the spectrograph is on the
+summit, will be that all data from the spectrograph will be written to
+the L1 handoff system, which will be at the BDC (base data center). ~The
 L1 handoff system will have the OODS(Observatory Operations Data
 Service) service and the DBB(Data BackBone) service in place. ~The DBB
 service will transfer the data to NCSA and be responsible for generating
 metadata/provenance data from image headers. ~The DBB will be
-responsible to ingest the image file into the correct the ButlerG2 (or
-G3) repository, and DBB repository. ~The L1 handoff system through the
-OODS will enable quick access to images that were just created and keep
-30 days worth of cache for scientists to view as needed from the summit
-LSP. ~\\[2\baselineskip]
+responsible to ingest the image file into the correct ButlerG2 (or G3)
+repository, and DBB repository. ~The L1 handoff system through the OODS
+will enable quick access to images that were just created and keep 30
+days worth of cached images for scientists to view as needed via the LSP
+instance on the summit. ~\\[2\baselineskip]
 
 \subsection{Applicable Documents}\label{applicable-documents}
 
@@ -98,7 +98,7 @@ Section \ref{sect:personnel} describes the necessary roles and lists the individ
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P32 in Jira is Draft.
+The current status of test plan LVV-P32 in Jira is Approved.
 
 \subsection{References}
 \label{sect:references}
@@ -114,20 +114,20 @@ The current status of test plan LVV-P32 in Jira is Draft.
 \subsection{Verification Environment}
 \label{sect:hwconf}
   Verification environment will be the ATS storage server attached to the
-spectragraph. ~ OS is Centos 6.* running latest security patches. ~Cron
-script to move to images NCSA installed on ATS storage server. ~ IP
-tables and port verifications for data transfer to NCSA. ~Receiving end
-at NCSA file systems available with DTN configured and protocol set up.
-~ NCSA verification scripts including ButlerG* ingests.
-~\\[3\baselineskip]
+spectrograph. ~ The OS is Centos 6.* running latest security patches. ~A
+Cron script is used to move to images ~on ATS storage server to NCSA. ~
+IP tables and port verifications are used for data transfer to NCSA.
+~The receiving end at NCSA file systems is a file system ~available with
+the DTN protocol configured and set up. ~ NCSA verification scripts
+including ButlerG* ingests are run. ~\\[3\baselineskip]
 
 
   \subsection{Entry Criteria}
-  Image data taken by the spectragraph.~~
+  Image data taken by the spectrograph. ~
 
 
   \subsection{Exit Criteria}
-  Image data from spectragraph viewable by LSP at NCSA.~
+  Image data from spectrograph viewable by LSP at NCSA.~
 
 
 
@@ -143,7 +143,7 @@ The following personnel are involved in this test activity:
   \item LVV-C56 owner: 
     Michelle Gower
   \begin{itemize}
-    \item Test case LVV-T454 tester: 
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} tester: 
   \end{itemize}
 \end{itemize}
 \item Additional Test Personnel involved: None
@@ -159,7 +159,7 @@ The following personnel are involved in this test activity:
 
 \begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
 \toprule
-  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectragraph data viewable by LSP.
+  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectrograph data viewable by LSP.
  }} \\\hline
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} 
@@ -187,10 +187,10 @@ Not yet available.
 
   \subsection{Test Cycle LVV-C56 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{LDM-503-8 Enable spectragraph data viewable by LSP.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{LDM-503-8 Enable spectrograph data viewable by LSP.
 }} in Jira.
 
-  LDM-503-8 Enable spectragraph data viewable by LSP.
+  LDM-503-8 Enable spectrograph data viewable by LSP.
 \\
   Status: Not Executed
 
@@ -203,9 +203,9 @@ viewing and verification.~ ~~
     Not provided.
 
   \subsubsection{Configuration}
-    ATS system connected to spectragraph DAQ is required to have well formed
-image data. ~Well formed means ``good'' image and correct headers.
-~\\[2\baselineskip]
+    ATS system connected to spectrograph DAQ is required to have well formed
+image data. ~Well formed means ``good'' image and correct headers
+(\citeds{LSE-400}). ~\\[2\baselineskip]
 
 
   \subsubsection{Test Cases in LVV-C56 Test Cycle}
@@ -219,14 +219,14 @@ test case in Jira.
     \begin{itemize}
 \tightlist
 \item
-  Acquire spectragraph image data, transfer that data to NCSA, ingest
-  data into some Butler (G2 or G3 when available), and enable viewing of
+  Acquire spectrograph image data, transfer that data to NCSA, ingest
+  data into a Butler (G2 or G3 when available), and enable viewing of
   data on LSP. ~
 \end{itemize}
 
 
     {\bf Preconditions}:\\
-    Data must be well formed on Spectragraph data archiving system (ATS).
+    Data must be well formed on Spectrograph data archiving system (ATS).
 ~Well-formed means ``good image'' and correct headers. (\citeds{LSE-400}) ~
 
 
@@ -272,8 +272,9 @@ for further analysis
       2 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      human runs script to transfer data to NCSA through secure pipeline, or a
-cronjob starts up data ``sync'' process.~~
+      A first few iterations is the human runs script to transfer data to NCSA
+through secure pipeline. ~after the process is unchanging/solid, a
+cronjob starts up data ``sync'' process. ~
 
       \vspace{\dp0}
       } \end{minipage} \\
