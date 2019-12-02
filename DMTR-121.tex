@@ -1,4 +1,4 @@
-\documentclass[DM,STR,toc]{lsstdoc}
+\documentclass[DM,lsstdraft,STR,toc]{lsstdoc}
 \usepackage{geometry}
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
@@ -17,9 +17,9 @@
 
 \setDocCompact{true}
 
-\title[\milestoneId{}~Test Report]{\milestoneId{} (\milestoneName{})~Test Plan and Report}
+\title{ LDM-503-8 Spectrograph Data Acquisition Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
-\setDocDate{2019-02-18}
+\date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
 \author{ Michelle Butler }
 
@@ -27,7 +27,7 @@
 
 
 \setDocAbstract{
-This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST level 2 milestone pertaining to the Data Management Subsystem.
+This is the test plan and report for LDM-503-8 (Spectrograph Data Acquisition), an LSST level 2 milestone pertaining to the Data Management Subsystem.
 }
 
 
@@ -41,7 +41,7 @@ This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST 
 \label{sect:objectives}
 
 To acquire data from the spectrograph instrument along with proper
-headers and transfer all data to NCSA for further viewing in LSP.~~
+headers and transfer all data to NCSA for further viewing in LSP. ~
 
 
 
@@ -98,7 +98,7 @@ Section \ref{sect:personnel} describes the necessary roles and lists the individ
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P32 in Jira is Approved.
+The current status of test plan LVV-P32 in Jira is \textbf{ Approved }.
 
 \subsection{References}
 \label{sect:references}
@@ -131,6 +131,7 @@ including ButlerG* ingests are run. ~\\[3\baselineskip]
 
 
 
+\newpage
 \section{Personnel}
 \label{sect:personnel}
 
@@ -143,10 +144,14 @@ The following personnel are involved in this test activity:
   \item LVV-C56 owner: 
     Michelle Gower
   \begin{itemize}
-    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} tester: 
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} tester: Michelle Butler
   \end{itemize}
 \end{itemize}
-\item Additional Test Personnel involved: None
+\item Additional Test Personnel involved:
+  \begin{itemize}
+    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454}: Michelle Gower, Htut-Khine, SRP
+
+  \end{itemize}
 \end{itemize}
 
 \newpage
@@ -159,11 +164,14 @@ The following personnel are involved in this test activity:
 
 \begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
 \toprule
+
   \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectrograph data viewable by LSP.
  }} \\\hline
+
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} 
-    & Not Executed &  &
+
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454}
+    & Pass &  &
     \\\hline
 
 \caption{Test Results Summary}
@@ -192,7 +200,7 @@ Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/
 
   LDM-503-8 Enable spectrograph data viewable by LSP.
 \\
-  Status: Not Executed
+  Status: Done
 
   Image data needs to be created and available for transfer to NCSA. ~The
 data will be transferred to NCSA and made available to scientists for
@@ -211,7 +219,8 @@ image data. ~Well formed means ``good'' image and correct headers
   \subsubsection{Test Cases in LVV-C56 Test Cycle}
 
 
-    \paragraph{Test Case LVV-T454 }\mbox{}\\
+    \paragraph{Test Case LVV-T454 - LDM-503-8 Enable LSP viewing of spectrograph data.
+ }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{\textit{ LVV-T454 } }
 test case in Jira.
@@ -225,12 +234,12 @@ test case in Jira.
 \end{itemize}
 
 
-    {\bf Preconditions}:\\
+    \textbf{ Preconditions}:\\
     Data must be well formed on Spectrograph data archiving system (ATS).
 ~Well-formed means ``good image'' and correct headers. (\citeds{LSE-400}) ~
 
 
-    Execution status: {\bf Not Executed }
+    Execution status: {\bf Pass }
 
     Final comment:\\
 
@@ -243,13 +252,14 @@ test case in Jira.
       1 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      Have data on the ATS archiver system from the spectragraph.~
+      Have data on the ATS archiver system from the spectrograph.~
 
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Expected Result & 
+
+      & Expected Result &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       Well formed files on the ATS system that need to be transferred to NCSA
@@ -267,7 +277,7 @@ for further analysis
       \\ \cdashline{2-3}
 
 
-      & Status          & Not Executed \\ \hline
+      & Status          & Pass \\ \hline
 
       2 & Description &
 
@@ -280,7 +290,8 @@ cronjob starts up data ``sync'' process. ~
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Expected Result & 
+
+      & Expected Result &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       Data is transferred to NCSA, and is located in NCSA file
@@ -298,7 +309,7 @@ systems.\\[2\baselineskip]
       \\ \cdashline{2-3}
 
 
-      & Status          & Not Executed \\ \hline
+      & Status          & Pass \\ \hline
 
       3 & Description &
 
@@ -310,7 +321,8 @@ process.~
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Expected Result & 
+
+      & Expected Result &
 
       \begin{minipage}[t]{13cm}{\footnotesize
       files now can be accessed by Butler access methods\\[2\baselineskip]
@@ -327,21 +339,22 @@ process.~
       \\ \cdashline{2-3}
 
 
-      & Status          & Not Executed \\ \hline
+      & Status          & Pass \\ \hline
 
       4 & Description &
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      LSP processes can now view spectragraph generate files~
+      LSP processes can now view spectrograph generate files~
 
       \vspace{\dp0}
       } \end{minipage} \\
       \\ \cdashline{2-3}
 
-      & Expected Result & 
+
+      & Expected Result &
 
       \begin{minipage}[t]{13cm}{\footnotesize
-      LSP jupyter notebooks can view spectragraph files.\\[2\baselineskip]
+      LSP jupyter notebooks can view spectrograph files.\\[2\baselineskip]
 
       \vspace{\dp0}
       } \end{minipage} \\
@@ -355,7 +368,7 @@ process.~
       \\ \cdashline{2-3}
 
 
-      & Status          & Not Executed \\ \hline
+      & Status          & Pass \\ \hline
 
     \end{longtable}
 
