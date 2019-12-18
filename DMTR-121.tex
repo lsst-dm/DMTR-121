@@ -63,18 +63,19 @@ directly to a local disk on the ATS storage server which is co-located
 and directly connected to the spectrograph instrument. ~ Data will be
 copied from that local disk on the ATS storage server to NCSA and a
 ButlerG2 (or G3) ingest process completed so that the LSP can access the
-image data. ~ Version 2.0 of this test, when the spectrograph is on the
-summit, will be that all data from the spectrograph will be written to
-the L1 handoff system, which will be at the BDC (base data center). ~The
-L1 handoff system will have the OODS(Observatory Operations Data
-Service) service and the DBB(Data BackBone) service in place. ~The DBB
-service will transfer the data to NCSA and be responsible for generating
-metadata/provenance data from image headers. ~The DBB will be
-responsible to ingest the image file into the correct ButlerG2 (or G3)
-repository, and DBB repository. ~The L1 handoff system through the OODS
-will enable quick access to images that were just created and keep 30
-days worth of cached images for scientists to view as needed via the LSP
-instance on the summit. ~\\[2\baselineskip]
+image data. This test was run with Butler/G2.~ ~Version 2.0 of this
+test, when the spectrograph is on the summit, will be that all data from
+the spectrograph will be written to the L1 handoff system, which will be
+at the BDC (base data center). ~The L1 handoff system will have the
+OODS(Observatory Operations Data Service) service and the DBB(Data
+BackBone) service in place. ~The DBB service will transfer the data to
+NCSA and be responsible for generating metadata/provenance data from
+image headers. ~The DBB will be responsible to ingest the image file
+into the correct ButlerG2 (or G3) repository, and DBB repository. ~The
+L1 handoff system through the OODS will enable quick access to images
+that were just created and keep 30 days worth of cached images for
+scientists to view as needed via the LSP instance on the summit.
+~\\[2\baselineskip]
 
 \subsection{Applicable Documents}\label{applicable-documents}
 
@@ -202,10 +203,17 @@ The personnel involved in the test campaign is shown in the following table.
 The test worked well, and data has been flowing from the AT-archiver in
 Tucson to the LDF ever since. ~ There have been some hiccups in the
 ingestion process due to the stack changing, but have been fixed with
-releases of the stack in following weeks. ~ ~The data flow right now is
-done by Rsync, but will be switched out to something immediately
-transmit without cron when the image file is created, but that won't be
-until Feb 2020.~~
+releases of the stack in following weeks. ~This is how data is brought
+to NCSA from the test stand in Tucson on a daily basis. ~ The specific
+time it was run for this test was 8/20 and the stack version is
+w\_2019\_33. ~All the files from the Tucson test stand are ingested and
+placed in this path:
+/lsstdata/offline/teststand/auxTel/L1Archiver/storage/ ~ ~The data flow
+right now is done by Rsync, but will be switched out to something that
+will immediately transmit a file without cron when the image file is
+created, but that won't be until Feb 2020. ~ ~All the files have all
+been re-ingested this week with stack W\_2019\_50: ~creating new sqllite
+repos for all images. ~(12/17/2019)~
 
 
 \subsection{Recommended Improvements}
@@ -214,9 +222,9 @@ until Feb 2020.~~
 There is no need for the image to be examined before it's ingested into
 the LDF. ~ There are too many images at this time to evaluate them at
 that rate, and many want to see the image quickly. ~Having the image
-examined by the science staff before i's ingested could be a long delay.
-~ ~It would be better that the science staff examine the images after
-they have been ingested and on the LDF.~~
+examined by the science staff before it's ingested could be a long
+delay. ~ ~It would be better that the science staff examine the images
+after they have been ingested and on the LDF.~~
 
 
 \newpage
@@ -238,7 +246,19 @@ viewing and verification.~ ~~
 
 
 \subsubsection{Software Version/Baseline}
-Not provided.
+The transfer of the file does not use versions, but the ingest of the
+files into Butler/G2 requires the weekly stack and the LSSTobj
+environment. ~ ~All files from the Tucson test stand are transferred to
+NCSA in this fashion and then injested. ~Files are ingested with the
+``current'' weekly when the file is transferred at the time. ~ For
+example ~image file: AT\_O\_20190820\_000001-ats-wfs\_ccd.fits was
+ingested with W\_2019\_33, and can be found in the file system on the
+LSP:
+/lsstdata/offline/teststand/auxTel/L1Archiver/gen2repo/raw/2019-08-20/2019082000001-det000.fits.
+~As an update to this test; ~All files as of (12/17/2019) have been
+reingested with w\_2019\_50. ~ This fixed some problems with some of the
+DB fields in the sqlite repos.~ ~
+
 
 \subsubsection{Configuration}
 ATS system connected to spectrograph DAQ is required to have well formed
@@ -378,6 +398,24 @@ LSP jupyter notebooks can view spectrograph files.\\[2\baselineskip]
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+from the terminal window on the LSP:\\
+\$ ls\\
+AT\_O\_20190820\_000001-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000005-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000009-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000002-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000006-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000010-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000003-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000007-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000011-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000004-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000008-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000012-ats-wfs\_ccd.fits\\
+{[}mbutler@lsst-dev01 2019-08-20{]}\$ pwd\\
+/lsstdata/offline/teststand/auxTel/L1Archiver/storage/2019-08-20\\[2\baselineskip]This
+is just the listing of the files transferred and can be used as a user
+wishes.~ ~\\[2\baselineskip]
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
