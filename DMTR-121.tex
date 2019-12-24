@@ -1,4 +1,4 @@
-\documentclass[DM,STR,toc]{lsstdoc}
+\documentclass[DM,lsstdraft,STR,toc]{lsstdoc}
 \usepackage{geometry}
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
@@ -9,6 +9,8 @@
 \providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
+\setcounter{tocdepth}{4}
+
 \begin{document}
 
 \def\milestoneName{Spectrograph Data Acquisition}
@@ -17,9 +19,9 @@
 
 \setDocCompact{true}
 
-\title[\milestoneId{}~Test Report]{\milestoneId{} (\milestoneName{})~Test Plan and Report}
+\title{ LDM-503-8 Spectrograph Data Acquisition Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
-\setDocDate{2019-02-18}
+\date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
 \author{ Michelle Butler }
 
@@ -27,7 +29,8 @@
 
 
 \setDocAbstract{
-This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST level 2 milestone pertaining to the Data Management Subsystem.
+This is the test plan and report for LDM-503-8 (Spectrograph Data Acquisition),
+an LSST level 2 milestone pertaining to the Data Management Subsystem.
 }
 
 
@@ -41,7 +44,7 @@ This is the test plan and report for \milestoneId{} (\milestoneName{}), an LSST 
 \label{sect:objectives}
 
 To acquire data from the spectrograph instrument along with proper
-headers and transfer all data to NCSA for further viewing in LSP.~~
+headers and transfer all data to NCSA for further viewing in LSP. ~
 
 
 
@@ -60,18 +63,19 @@ directly to a local disk on the ATS storage server which is co-located
 and directly connected to the spectrograph instrument. ~ Data will be
 copied from that local disk on the ATS storage server to NCSA and a
 ButlerG2 (or G3) ingest process completed so that the LSP can access the
-image data. ~ Version 2.0 of this test, when the spectrograph is on the
-summit, will be that all data from the spectrograph will be written to
-the L1 handoff system, which will be at the BDC (base data center). ~The
-L1 handoff system will have the OODS(Observatory Operations Data
-Service) service and the DBB(Data BackBone) service in place. ~The DBB
-service will transfer the data to NCSA and be responsible for generating
-metadata/provenance data from image headers. ~The DBB will be
-responsible to ingest the image file into the correct ButlerG2 (or G3)
-repository, and DBB repository. ~The L1 handoff system through the OODS
-will enable quick access to images that were just created and keep 30
-days worth of cached images for scientists to view as needed via the LSP
-instance on the summit. ~\\[2\baselineskip]
+image data. This test was run with Butler/G2.~ ~Version 2.0 of this
+test, when the spectrograph is on the summit, will be that all data from
+the spectrograph will be written to the L1 handoff system, which will be
+at the BDC (base data center). ~The L1 handoff system will have the
+OODS(Observatory Operations Data Service) service and the DBB(Data
+BackBone) service in place. ~The DBB service will transfer the data to
+NCSA and be responsible for generating metadata/provenance data from
+image headers. ~The DBB will be responsible to ingest the image file
+into the correct ButlerG2 (or G3) repository, and DBB repository. ~The
+L1 handoff system through the OODS will enable quick access to images
+that were just created and keep 30 days worth of cached images for
+scientists to view as needed via the LSP instance on the summit.
+~\\[2\baselineskip]
 
 \subsection{Applicable Documents}\label{applicable-documents}
 
@@ -90,15 +94,18 @@ This document was generated from Jira, obtaining the relevant information from t
   \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C56}{LVV-C56}
 ).
 
-Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
+Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}),
+the applicable documentation, and explains how this document is organized.
 Section \ref{sect:configuration}  describes the configuration used for this test.
 Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
-%Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases, including all relevant information that fully describes the test campaign.
+%Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases,
+including all relevant information that fully describes the test campaign.
 
-Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
+Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary},
+an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P32 in Jira is Approved.
+The current status of test plan LVV-P32 in Jira is \textbf{ Completed }.
 
 \subsection{References}
 \label{sect:references}
@@ -131,92 +138,143 @@ including ButlerG* ingests are run. ~\\[3\baselineskip]
 
 
 
+\newpage
 \section{Personnel}
 \label{sect:personnel}
 
-The following personnel are involved in this test activity:
+The personnel involved in the test campaign are shown in the following table.
 
-\begin{itemize}
-\item Test Plan (LVV-P32) owner: Michelle Butler
-\item Test Cycles:
-\begin{itemize}
-  \item LVV-C56 owner: 
+\begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
+\hline
+\multicolumn{2}{r}{Test Plan (LVV-P32) owner:} &
+\multicolumn{2}{l}{\textbf{ Michelle Butler } }\\\hline
+\multicolumn{2}{r}{ LVV-C56 owner:} &
+\multicolumn{2}{l}{\textbf{
     Michelle Gower
-  \begin{itemize}
-    \item Test case \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} tester: 
-  \end{itemize}
-\end{itemize}
-\item Additional Test Personnel involved: None
-\end{itemize}
+}
+} \\\hline
+\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454}
+& {\small Michelle Butler } & {\small Michelle Butler } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small Michelle Gower, Htut-Khine, SRP
+ }
+\medskip
+\end{minipage}
+\\ \hline
+\end{longtable}
 
 \newpage
 
-\section{Overview of the Test Results}
+\section{Test Campaign Overview}
 \label{sect:overview}
 
 \subsection{Summary}
 \label{sect:summarytable}
 
-\begin{longtable}{p{0.12\textwidth}p{0.2\textwidth}p{0.56\textwidth}p{0.12\textwidth}}
+\begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
 \toprule
-  \multicolumn{3}{c}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectrograph data viewable by LSP.
- }} \\\hline
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454} 
-    & Not Executed &  &
-    \\\hline
+\multicolumn{3}{l}{ Test Plan {\bf LVV-P32: LDM-503-8 Spectrograph Data Acquisition
+ }} & Completed \\\hline
 
-\caption{Test Results Summary}
+  \multicolumn{3}{l}{ Test Cycle {\bf LVV-C56: LDM-503-8 Enable spectrograph data viewable by LSP.
+ }} & Done \\\hline
+
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
+
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{LVV-T454}
+    & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    executed with no problems.~
+
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+\caption{Test Campaign Summary}
 \label{table:summary}
 \end{longtable}
 
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
 
-Not yet available.
+The test worked well, and data has been flowing from the AT-archiver in
+Tucson to the LDF ever since. ~ There have been some hiccups in the
+ingestion process due to the stack changing, but have been fixed with
+releases of the stack in following weeks. ~This is how data is brought
+to NCSA from the test stand in Tucson on a daily basis. ~ The specific
+time it was run for this test was 8/20 and the stack version is
+w\_2019\_33. ~All the files from the Tucson test stand are ingested and
+placed in this path:
+/lsstdata/offline/teststand/auxTel/L1Archiver/storage/ ~ ~The data flow
+right now is done by Rsync, but will be switched out to something that
+will immediately transmit a file without cron when the image file is
+created, but that won't be until Feb 2020. ~ ~All the files have all
+been re-ingested this week with stack W\_2019\_50: ~creating new sqllite
+repos for all images. ~(12/17/2019)~
+
 
 \subsection{Recommended Improvements}
 \label{sect:recommendations}
 
-Not yet available.
+There is no need for the image to be examined before it's ingested into
+the LDF. ~ There are too many images at this time to evaluate them at
+that rate, and many want to see the image quickly. ~Having the image
+examined by the science staff before it's ingested could be a long
+delay. ~ ~It would be better that the science staff examine the images
+after they have been ingested and on the LDF.~~
+
 
 \newpage
 \section{Detailed Test Results}
 \label{sect:detailedtestresults}
 
-
-  \subsection{Test Cycle LVV-C56 }
+\subsection{Test Cycle LVV-C56 }
 
 Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C56}{LDM-503-8 Enable spectrograph data viewable by LSP.
 }} in Jira.
 
-  LDM-503-8 Enable spectrograph data viewable by LSP.
+LDM-503-8 Enable spectrograph data viewable by LSP.
 \\
-  Status: Not Executed
+Status: Done
 
-  Image data needs to be created and available for transfer to NCSA. ~The
+Image data needs to be created and available for transfer to NCSA. ~The
 data will be transferred to NCSA and made available to scientists for
 viewing and verification.~ ~~
 
 
-  \subsubsection{Software Version/Baseline}
-    Not provided.
+\subsubsection{Software Version/Baseline}
+The transfer of the file does not use versions, but the ingest of the
+files into Butler/G2 requires the weekly stack and the LSSTobj
+environment. ~ ~All files from the Tucson test stand are transferred to
+NCSA in this fashion and then injested. ~Files are ingested with the
+``current'' weekly when the file is transferred at the time. ~ For
+example ~image file: AT\_O\_20190820\_000001-ats-wfs\_ccd.fits was
+ingested with W\_2019\_33, and can be found in the file system on the
+LSP:
+/lsstdata/offline/teststand/auxTel/L1Archiver/gen2repo/raw/2019-08-20/2019082000001-det000.fits.
+~As an update to this test; ~All files as of (12/17/2019) have been
+reingested with w\_2019\_50. ~ This fixed some problems with some of the
+DB fields in the sqlite repos.~ ~
 
-  \subsubsection{Configuration}
-    ATS system connected to spectrograph DAQ is required to have well formed
+
+\subsubsection{Configuration}
+ATS system connected to spectrograph DAQ is required to have well formed
 image data. ~Well formed means ``good'' image and correct headers
 (\citeds{LSE-400}). ~\\[2\baselineskip]
 
 
-  \subsubsection{Test Cases in LVV-C56 Test Cycle}
+\subsubsection{Test Cases in LVV-C56 Test Cycle}
 
-
-    \paragraph{Test Case LVV-T454 }\mbox{}\\
+\paragraph{Test Case LVV-T454 - LDM-503-8 Enable LSP viewing of spectrograph data.
+ }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T454}{\textit{ LVV-T454 } }
 test case in Jira.
 
-    \begin{itemize}
+\begin{itemize}
 \tightlist
 \item
   Acquire spectrograph image data, transfer that data to NCSA, ingest
@@ -225,139 +283,146 @@ test case in Jira.
 \end{itemize}
 
 
-    {\bf Preconditions}:\\
-    Data must be well formed on Spectrograph data archiving system (ATS).
+\textbf{ Preconditions}:\\
+Data must be well formed on Spectrograph data archiving system (ATS).
 ~Well-formed means ``good image'' and correct headers. (\citeds{LSE-400}) ~
 
 
-    Execution status: {\bf Not Executed }
+Execution status: {\bf Pass }
 
-    Final comment:\\
+Final comment:\\executed with no problems.~
 
 
-    Detailed step results:
 
-    \begin{longtable}{p{1cm}p{2cm}p{13cm}}
-    \hline
-    {Step} & \multicolumn{2}{c}{Description, Results and Status}\\ \hline
-      1 & Description &
+Detailed steps results:
 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      Have data on the ATS archiver system from the spectragraph.~
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Have data on the ATS archiver system from the spectrograph.~
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
 
-      & Expected Result & 
 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      Well formed files on the ATS system that need to be transferred to NCSA
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Well formed files on the ATS system that need to be transferred to NCSA
 for further analysis
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
 
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      & Status          & Not Executed \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
-      2 & Description &
-
-      \begin{minipage}[t]{13cm}{\footnotesize
-      A first few iterations is the human runs script to transfer data to NCSA
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+A first few iterations is the human runs script to transfer data to NCSA
 through secure pipeline. ~after the process is unchanging/solid, a
 cronjob starts up data ``sync'' process. ~
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
 
-      & Expected Result & 
 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      Data is transferred to NCSA, and is located in NCSA file
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Data is transferred to NCSA, and is located in NCSA file
 systems.\\[2\baselineskip]
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
 
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      & Status          & Not Executed \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
-      3 & Description &
-
-      \begin{minipage}[t]{13cm}{\footnotesize
-      All files transferred have a ButlerG2 (or G3 when ready) ingest
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+All files transferred have a ButlerG2 (or G3 when ready) ingest
 process.~
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
-
-      & Expected Result & 
-
-      \begin{minipage}[t]{13cm}{\footnotesize
-      files now can be accessed by Butler access methods\\[2\baselineskip]
-
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
-
-      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
 
 
-      & Status          & Not Executed \\ \hline
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+files now can be accessed by Butler access methods\\[2\baselineskip]
 
-      4 & Description &
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      LSP processes can now view spectragraph generate files~
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
-      & Expected Result & 
+ & Status: \textbf{ Pass } \\ \hline
 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      LSP jupyter notebooks can view spectragraph files.\\[2\baselineskip]
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+LSP processes can now view spectrograph generate files~
 
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
-
-      & \begin{minipage}[t]{2cm}{Actual\\ Result}\end{minipage}   & 
-      \begin{minipage}[t]{13cm}{\footnotesize
-      
-      \vspace{\dp0}
-      } \end{minipage} \\
-      \\ \cdashline{2-3}
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
 
 
-      & Status          & Not Executed \\ \hline
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+LSP jupyter notebooks can view spectrograph files.\\[2\baselineskip]
 
-    \end{longtable}
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+from the terminal window on the LSP:\\
+\$ ls\\
+AT\_O\_20190820\_000001-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000005-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000009-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000002-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000006-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000010-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000003-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000007-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000011-ats-wfs\_ccd.fits\\
+AT\_O\_20190820\_000004-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000008-ats-wfs\_ccd.fits
+AT\_O\_20190820\_000012-ats-wfs\_ccd.fits\\
+{[}mbutler@lsst-dev01 2019-08-20{]}\$ pwd\\
+/lsstdata/offline/teststand/auxTel/L1Archiver/storage/2019-08-20\\[2\baselineskip]This
+is just the listing of the files transferred and can be used as a user
+wishes.~ ~\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
 
 
 \input{appendix.tex}
